@@ -46,5 +46,8 @@
   "advancements.microwave.descr": "Inventor of Microwaves",
   "block.slimes-decor.tnt_mug": "TNT Mug",
   "advancements.cooldown.title": "3..2..1, oh wait, it's just a mug",
-  "advancements.cooldown.descr": "The next successful mug"
+  "advancements.cooldown.descr": "The next successful mug",
+
+  "key.slimes-decor.wear_block": "Wear Block",
+  "category.slimes-decor.main": "Slimes Decor"
 }

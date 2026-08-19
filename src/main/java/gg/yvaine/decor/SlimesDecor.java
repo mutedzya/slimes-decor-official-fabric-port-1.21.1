@@ -1,5 +1,10 @@
 package gg.yvaine.decor;
 
+import gg.yvaine.decor.Essential.WearableBlocks;
+import gg.yvaine.decor.client.SlimesDecorClient;
+import gg.yvaine.decor.network.ServerPacketHandlers;
+import gg.yvaine.decor.network.WearBlockPayload;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -27,13 +32,20 @@ public class SlimesDecor implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// Start of user code block mod constructor
-		// End of user code block mod constructor
 
-		// Fabric registry initializations (ensure your init classes have a load/register method)
 		SlimesDecorBlocks.registerSlimesBlocks();
 		SlimesDecorItems.registerSlimesItems();
 		SlimesDecorTabs.registerSlimesTabs();
+		PayloadTypeRegistry.playC2S().register(WearBlockPayload.ID, WearBlockPayload.CODEC);
+		ServerPacketHandlers.register();
+		SlimesDecorClient.registerKeybinds();
+
+
+
+
+
+
+
 
 		// Server tick event handling for work queue execution
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
